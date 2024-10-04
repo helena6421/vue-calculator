@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+# NODEJS - Service
+  nodejs:
+    build: configs/nodejs
+    container_name: nodejs_container
+    volumes:
+      - /var/www/my-site:/var/www/my-site
+    working_dir: /var/www/my-site
+    command: sh init.sh

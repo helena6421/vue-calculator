@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import alertify from "alertifyjs";
+import "reflect-metadata"
 
 export const useCalculator = defineStore("useCalculator", {
   state: () => ({
@@ -22,6 +23,7 @@ export const useCalculator = defineStore("useCalculator", {
       this.operator = "";
     },
     addToNumber(number: number | string) {
+      console.log(number)
       if (this.ans.toString().length > 15) {
         alertify.error("You reached maximum length", 2);
         return;

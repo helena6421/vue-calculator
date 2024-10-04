@@ -96,12 +96,20 @@ const handleClick = (button: string | number) => {
     } else if (button === "=") {
       calculate();
     } else if (button === ".") {
-      // operator.value = 'dot';
+        if (operator.value === "") {
+          num.value = num.value + '.';
+        } else {
+        if (num.value.indexOf('.') !== -1) {
+          num.value += '.';
+        } else {
+          num.value = '0.' + num.value;
+        }
+        }
     }
   }
 };
 const checkCalculate = (): void => {
-  if (!(operator.value === "" || num.value === 0)) {
+  if (!(operator.value === "")) {
     calculate();
   }
 };
@@ -110,6 +118,7 @@ const operators: any = {
   subtract: "-",
   multiply: "x",
   divide: "÷",
+  dot: "."
 };
 </script>
 
